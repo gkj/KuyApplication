@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">KUY!</string>
+    <string name="title_activity_hotel_detail">Hotel</string>
+    <string name="title_activity_main">Kuy Application</string>
+    <string name="title_activity_login">Login</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_name">Fullname</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="btn_register">REGISTER</string>
+    <string name="btn_link_to_register">Does not have account? Sign up here.</string>
+    <string name="btn_link_to_login">Already registered! Login here.</string>
+    <string name="welcome">Welcome</string>
+    <string name="btn_logout">LOGOUT</string>
+    <string name="btn_hotel">HOTEL</string>
+    <string name="btn_resto">RESTAURANT</string>
+    <string name="btn_train_map">TRAIN MAP</string>
+    <string name="btn_about">ABOUT</string>
+    <string name="btn_profile">PROFILE</string>
+    <string name="name">Fullname</string>
+    <string name="btnRestoDekat">NEARBY RESTAURANT</string>
+    <string name="btnRestoMurah">CHEAPEST RESTAURANT</string>
+    <string name="btnRestoRating">HIGHEST RATE RESTAURANT</string>
+    <string name="btnHotelDekat">NEARBY HOTEL</string>
+    <string name="btnHotelMurah">CHEAPEST HOTEL</string>
+    <string name="btnHotelRating">HIGHEST RATE HOTEL</string>
+    <string name="logout">Logout</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_resto_maps">Map</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="title_activity_splashcreen">Splashcreen</string>
+    <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_about">About</string>
+    <string name="title_activity_hotel">Hotel</string>
+    <string name="title_activity_restaurant">Restaurant</string>
+    <string name="title_activity_train_map">Train Map</string>
+
+    <string name="location_permission_dialog_title">Location permission needed</string>
+    <string name="location_permission_dialog_message">Enable Location permission now?</string>
+    <string name="location_services_off">Location services OFF</string>
+    <string name="open_location_settings">Enable location services now?</string>
+</resources>
