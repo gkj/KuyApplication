@@ -19,4 +19,5 @@ public class Constant {
     public static final String SELECTED_RESTAURANT = "selected_restaurant";
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATIONS = 999;
+    public static final double NO_COORDINATE = 9999.99;
 }

@@ -21,4 +21,10 @@ public interface HotelDetailView extends BaseView {
 
     @CallOnMainThread
     Hotel getSelectedHotel();
+
+    @CallOnMainThread
+    double getLatitude();
+
+    @CallOnMainThread
+    double getLongitude();
 }

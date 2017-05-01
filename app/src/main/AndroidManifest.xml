@@ -88,13 +88,10 @@
             android:name=".features.restaurantdetail.RestaurantDetailActivity"
             android:parentActivityName=".features.restaurantlist.RestaurantListActivity" />
         <activity
-            android:name=".features.trainmap.TrainMapActivity"
-            android:label="@string/title_activity_train_map"
-            android:parentActivityName=".features.main.MainActivity" />
-        <activity
             android:name=".features.trainmap.TrainActivity"
             android:label="@string/title_activity_train"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".features.hoteldetail.HotelDetailActivity"></activity>
     </application>
 
 </manifest>

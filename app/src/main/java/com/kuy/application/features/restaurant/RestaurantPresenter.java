@@ -44,7 +44,7 @@ public class RestaurantPresenter extends BaseLocationPresenter<RestaurantView> {
     }
 
     @Override
-    protected void onLocationReceived(Location location) {
+    public void onLocationReceived(Location location) {
         if (isViewAttached()) {
             hideProgressDialog();
             Intent intent = getBaseIntent(RestaurantListActivity.class);

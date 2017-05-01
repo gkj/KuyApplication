@@ -34,6 +34,8 @@ public class HotelDetailPresenter extends BasePresenter<HotelDetailView> {
             public void call(Void aVoid) {
                 Intent intent = getBaseIntent(TrainActivity.class);
                 intent.putExtra(Constant.SELECTED_HOTEL, getView().getSelectedHotel());
+                intent.putExtra(Constant.LATITUDE, getView().getLatitude());
+                intent.putExtra(Constant.LONGITUDE, getView().getLongitude());
                 navigateTo(intent);
             }
         }));

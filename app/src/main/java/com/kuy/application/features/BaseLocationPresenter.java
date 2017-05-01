@@ -11,7 +11,7 @@ import com.kuy.application.location.EasyLocationRequestBuilder;
  * Created by gilang on 4/30/17.
  */
 
-public class BaseLocationPresenter<V extends BaseLocationView> extends BasePresenter<V> {
+public abstract class BaseLocationPresenter<V extends BaseLocationView> extends BasePresenter<V> {
 
     private LocationRequest locationRequest = new LocationRequest()
             .setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY)
@@ -35,11 +35,9 @@ public class BaseLocationPresenter<V extends BaseLocationView> extends BasePrese
             getView().stopLocationUpdates();
     }
 
-    protected void onLocationReceived(Location location) {
+    public abstract void onLocationReceived(Location location);
 
-    }
-
-    protected void requestCurrentLocation() {
+    public void requestCurrentLocation() {
         getView().requestSingleLocationFix(easyLocationRequest);
     }
 

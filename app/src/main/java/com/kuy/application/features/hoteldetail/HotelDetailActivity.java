@@ -31,12 +31,16 @@ public class HotelDetailActivity extends BaseActivity<HotelDetailPresenter, Hote
     private Button trainSuggestionButton;
 
     private Hotel selectedHotel;
+    private double latitude;
+    private double longitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_detail);
         initUI();
+
+
     }
 
     private void initUI(){
@@ -50,6 +54,8 @@ public class HotelDetailActivity extends BaseActivity<HotelDetailPresenter, Hote
         trainSuggestionButton = (Button) findViewById(R.id.button_train_suggestion);
 
         Intent intent = getIntent();
+        latitude = intent.getDoubleExtra(Constant.LATITUDE, Constant.NO_COORDINATE);
+        longitude = intent.getDoubleExtra(Constant.LONGITUDE, Constant.NO_COORDINATE);
         selectedHotel = (Hotel) intent.getParcelableExtra(Constant.SELECTED_HOTEL);
 
         if (selectedHotel != null) {
@@ -82,5 +88,15 @@ public class HotelDetailActivity extends BaseActivity<HotelDetailPresenter, Hote
     @Override
     public Hotel getSelectedHotel() {
         return selectedHotel;
+    }
+
+    @Override
+    public double getLatitude() {
+        return latitude;
+    }
+
+    @Override
+    public double getLongitude() {
+        return longitude;
     }
 }

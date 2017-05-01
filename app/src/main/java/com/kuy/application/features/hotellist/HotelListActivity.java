@@ -50,6 +50,8 @@ public class HotelListActivity extends BaseActivity<HotelListPresenter, HotelLis
             public void onItemClick(Hotel item) {
                 Intent intent = getBaseIntent(HotelDetailActivity.class);
                 intent.putExtra(Constant.SELECTED_HOTEL, item);
+                intent.putExtra(Constant.LATITUDE, latitude);
+                intent.putExtra(Constant.LONGITUDE, longitude);
                 navigateTo(intent);
             }
         });
@@ -58,8 +60,8 @@ public class HotelListActivity extends BaseActivity<HotelListPresenter, HotelLis
 
         sortMode = getIntent().getIntExtra(Constant.HOTEL_MODE, Constant.HOTEL_MODE_DISTANCE);
         if (sortMode == Constant.HOTEL_MODE_DISTANCE) {
-            latitude = getIntent().getDoubleExtra(Constant.LATITUDE, 0.0);
-            longitude = getIntent().getDoubleExtra(Constant.LONGITUDE, 0.0);
+            latitude = getIntent().getDoubleExtra(Constant.LATITUDE, Constant.NO_COORDINATE);
+            longitude = getIntent().getDoubleExtra(Constant.LONGITUDE, Constant.NO_COORDINATE);
             setTitle("Nearby Hotel");
         }
         else {
