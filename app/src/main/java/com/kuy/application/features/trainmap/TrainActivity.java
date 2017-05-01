@@ -74,28 +74,7 @@ implements TrainView{
 
     }
 
-    private void getRoute(){
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(KuyService.ROUTE_URL)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        KuyService service = retrofit.create(KuyService.class);
-        //start=MYKL0199&goal=MYKL0151&start-time=2017-05-01T22:13&country=MY&timezone=UTC+07:00
-        Call<RouteResult> call = service.getRoutes("MYKL0199", "MYKL0151", "2017-05-01T22:13", "MY", "TC+07:00");
-
-        call.enqueue(new Callback<RouteResult>() {
-            @Override
-            public void onResponse(Call<RouteResult> call, Response<RouteResult> response) {
-
-            }
-
-            @Override
-            public void onFailure(Call<RouteResult> call, Throwable t) {
-
-            }
-        });
-    }
+    
 
     @NonNull
     @Override
