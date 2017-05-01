@@ -17,5 +17,8 @@ public interface HotelDetailView extends BaseView {
     Observable<Void> onShowMapButtonClicked();
 
     @CallOnMainThread
+    Observable<Void> onTrainSuggestionButtonClicked();
+
+    @CallOnMainThread
     Hotel getSelectedHotel();
 }

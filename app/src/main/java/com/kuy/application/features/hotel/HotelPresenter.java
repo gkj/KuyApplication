@@ -29,17 +29,7 @@ public class HotelPresenter extends BaseLocationPresenter<HotelView> {
 
                 showProgressDialog("Getting location...");
 
-                LocationRequest locationRequest = new LocationRequest()
-                        .setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY)
-                        .setInterval(5000)
-                        .setFastestInterval(5000);
-
-                EasyLocationRequest easyLocationRequest = new EasyLocationRequestBuilder()
-                        .setLocationRequest(locationRequest)
-                        .setFallBackToLastLocationTime(3000)
-                        .build();
-
-                requestSingleLocationFix(easyLocationRequest);
+                requestCurrentLocation();
             }
         }));
 
@@ -53,7 +43,8 @@ public class HotelPresenter extends BaseLocationPresenter<HotelView> {
         }));
     }
 
-    public void onLocationReceived(Location location) {
+    @Override
+    protected void onLocationReceived(Location location) {
         if (isViewAttached()) {
             hideProgressDialog();
             Intent intent = getBaseIntent(HotelListActivity.class);

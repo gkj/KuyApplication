@@ -12,7 +12,6 @@ import com.kuy.application.features.hotel.HotelActivity;
 import com.kuy.application.features.login.LoginActivity;
 import com.kuy.application.features.profile.ProfileActivity;
 import com.kuy.application.features.restaurant.RestaurantActivity;
-import com.kuy.application.features.trainmap.TrainMapActivity;
 import com.kuy.application.util.Constant;
 import com.kuy.application.util.Preferences;
 
@@ -48,7 +47,7 @@ public class MainPresenter extends BasePresenter<MainView> {
             @Override
             public void call(Void aVoid) {
                 //train map button clicked
-                navigateTo(TrainMapActivity.class);
+                //navigateTo(TrainMapActivity.class);
             }
         }));
 

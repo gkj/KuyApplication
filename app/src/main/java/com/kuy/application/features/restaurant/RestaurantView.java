@@ -19,7 +19,4 @@ public interface RestaurantView extends BaseLocationView {
 
     @CallOnMainThread
     Observable<Void> onCheapestRestaurantButtonClicked();
-
-    @CallOnMainThread
-    void onLocationReceived(Location location);
 }

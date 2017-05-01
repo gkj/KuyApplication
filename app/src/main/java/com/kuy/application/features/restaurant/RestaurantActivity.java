@@ -46,11 +46,4 @@ public class RestaurantActivity extends BaseLocationActivity<RestaurantPresenter
     public Observable<Void> onCheapestRestaurantButtonClicked() {
         return RxView.clicks(cheapestRestaurantButton);
     }
-
-    @Override
-    public void onLocationReceived(Location location) {
-        super.onLocationReceived(location);
-        stopLocationUpdates();
-        getPresenter().onLocationReceived(location);
-    }
 }

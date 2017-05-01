@@ -52,7 +52,8 @@ public abstract class BaseLocationActivity<P extends BaseLocationPresenter<V>, V
         easyLocationDelegate.stopLocationUpdates();
     }
 
-    protected void requestLocationUpdates(EasyLocationRequest easyLocationRequest) {
+    @Override
+    public void requestLocationUpdates(EasyLocationRequest easyLocationRequest) {
         easyLocationDelegate.requestLocationUpdates(easyLocationRequest);
     }
 
@@ -61,7 +62,8 @@ public abstract class BaseLocationActivity<P extends BaseLocationPresenter<V>, V
         easyLocationDelegate.requestSingleLocationFix(easyLocationRequest);
     }
 
-    protected void stopLocationUpdates() {
+    @Override
+    public void stopLocationUpdates() {
         easyLocationDelegate.stopLocationUpdates();
     }
 
@@ -77,7 +79,7 @@ public abstract class BaseLocationActivity<P extends BaseLocationPresenter<V>, V
 
     @Override
     public void onLocationReceived(Location location) {
-
+        getPresenter().onLocationReceived(location);
     }
 
     @Override

@@ -16,6 +16,7 @@ import com.kuy.application.R;
 import com.kuy.application.features.BaseActivity;
 import com.kuy.application.features.login.LoginPresenter;
 import com.kuy.application.features.login.LoginView;
+import com.kuy.application.util.StationUtil;
 
 import rx.Observable;
 
@@ -34,6 +35,9 @@ public class MainActivity extends BaseActivity<MainPresenter, MainView>
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initUI();
+
+        //load data
+        StationUtil.getInstance().loadStationsFromData(getBaseActivity());
     }
 
     private void initUI() {

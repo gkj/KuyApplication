@@ -35,7 +35,7 @@ public class HotelListPresenter extends BasePresenter<HotelListView> {
         getView().showProgressDialog();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constant.BASE_URL)
+                .baseUrl(KuyService.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

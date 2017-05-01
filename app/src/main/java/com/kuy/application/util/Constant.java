@@ -5,8 +5,6 @@ package com.kuy.application.util;
  */
 
 public class Constant {
-    public static final String BASE_URL = "http://kuywisata.hol.es";
-
     public static final String LATITUDE = "latitude";
     public static final String LONGITUDE = "longitude";
 

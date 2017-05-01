@@ -91,6 +91,10 @@
             android:name=".features.trainmap.TrainMapActivity"
             android:label="@string/title_activity_train_map"
             android:parentActivityName=".features.main.MainActivity" />
+        <activity
+            android:name=".features.trainmap.TrainActivity"
+            android:label="@string/title_activity_train"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

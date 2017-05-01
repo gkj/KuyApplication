@@ -44,7 +44,7 @@ public class LoginPresenter extends BasePresenter<LoginView> {
 
     private void login() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constant.BASE_URL)
+                .baseUrl(KuyService.BASE_URL)
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .build();
 

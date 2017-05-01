@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 
 import com.kuy.application.features.BasePresenter;
 import com.kuy.application.features.map.MapActivity;
+import com.kuy.application.features.trainmap.TrainActivity;
 import com.kuy.application.util.Constant;
 
 import rx.functions.Action1;
@@ -23,6 +24,15 @@ public class HotelDetailPresenter extends BasePresenter<HotelDetailView> {
             @Override
             public void call(Void aVoid) {
                 Intent intent = getBaseIntent(MapActivity.class);
+                intent.putExtra(Constant.SELECTED_HOTEL, getView().getSelectedHotel());
+                navigateTo(intent);
+            }
+        }));
+
+        registerObservable(getView().onTrainSuggestionButtonClicked().subscribe(new Action1<Void>() {
+            @Override
+            public void call(Void aVoid) {
+                Intent intent = getBaseIntent(TrainActivity.class);
                 intent.putExtra(Constant.SELECTED_HOTEL, getView().getSelectedHotel());
                 navigateTo(intent);
             }

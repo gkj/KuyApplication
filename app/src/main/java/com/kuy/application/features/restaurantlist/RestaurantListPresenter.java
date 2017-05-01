@@ -35,7 +35,7 @@ public class RestaurantListPresenter extends BasePresenter<RestaurantListView> {
         getView().showProgressDialog();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constant.BASE_URL)
+                .baseUrl(KuyService.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

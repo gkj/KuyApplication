@@ -19,7 +19,7 @@ import rx.functions.Action1;
  * Created by gilang on 4/26/17.
  */
 
-public class BasePresenter<V extends BaseView> extends TiPresenter<V>{
+public abstract class BasePresenter<V extends BaseView> extends TiPresenter<V>{
 
     // add the subscription helper to your presenter
     private RxTiPresenterSubscriptionHandler rxHelper = new RxTiPresenterSubscriptionHandler(this);

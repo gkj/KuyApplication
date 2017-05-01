@@ -28,6 +28,7 @@ public class HotelDetailActivity extends BaseActivity<HotelDetailPresenter, Hote
     private TextView cityTextView;
     private TextView postalCodeTextView;
     private Button showMapButton;
+    private Button trainSuggestionButton;
 
     private Hotel selectedHotel;
 
@@ -46,6 +47,7 @@ public class HotelDetailActivity extends BaseActivity<HotelDetailPresenter, Hote
         cityTextView = (TextView) findViewById(R.id.textview_city);
         postalCodeTextView = (TextView) findViewById(R.id.textview_postal_code);
         showMapButton = (Button) findViewById(R.id.button_show_map);
+        trainSuggestionButton = (Button) findViewById(R.id.button_train_suggestion);
 
         Intent intent = getIntent();
         selectedHotel = (Hotel) intent.getParcelableExtra(Constant.SELECTED_HOTEL);
@@ -70,6 +72,11 @@ public class HotelDetailActivity extends BaseActivity<HotelDetailPresenter, Hote
     @Override
     public Observable<Void> onShowMapButtonClicked(){
         return RxView.clicks(showMapButton);
+    }
+
+    @Override
+    public Observable<Void> onTrainSuggestionButtonClicked(){
+        return RxView.clicks(trainSuggestionButton);
     }
 
     @Override

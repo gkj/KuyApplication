@@ -44,11 +44,4 @@ public class HotelActivity extends BaseLocationActivity<HotelPresenter, HotelVie
     public Observable<Void> onCheapestHotelButtonClicked() {
         return RxView.clicks(cheapestHotelButton);
     }
-
-    @Override
-    public void onLocationReceived(Location location) {
-        super.onLocationReceived(location);
-        stopLocationUpdates();
-        getPresenter().onLocationReceived(location);
-    }
 }
