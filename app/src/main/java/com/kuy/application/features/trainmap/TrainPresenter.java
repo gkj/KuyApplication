@@ -11,6 +11,10 @@ import com.kuy.application.models.Station;
 import com.kuy.application.util.Constant;
 import com.kuy.application.util.StationUtil;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -27,6 +31,7 @@ public class TrainPresenter extends BaseLocationPresenter<TrainView> {
     protected void onWakeUp() {
         super.onWakeUp();
 
+        showProgressDialog("Getting train schedules...");
         requestCurrentLocation();
     }
 
@@ -52,12 +57,22 @@ public class TrainPresenter extends BaseLocationPresenter<TrainView> {
                 .build();
 
         KuyService service = retrofit.create(KuyService.class);
-        //start=MYKL0199&goal=MYKL0151&start-time=2017-05-01T22:13&country=MY&timezone=UTC+07:00
-        Call<RouteResult> call = service.getRoutes(start.getId(), goal.getId(), "2017-05-01T22:13", "MY", "UTC+07:00");
+
+        Date now = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat sdf2 = new SimpleDateFormat("HH:mm");
+
+        String timeStamp = String.format("%sT%s", sdf.format(now), sdf2.format(now));
+
+        String timezone = TimeZone.getDefault().getID();
+
+        Call<RouteResult> call = service.getRoutes(start.getId(), goal.getId(), timeStamp, "MY", "UTC+08:00");
 
         call.enqueue(new Callback<RouteResult>() {
             @Override
             public void onResponse(Call<RouteResult> call, Response<RouteResult> response) {
+
+                hideProgressDialog();
 
                 if (response.isSuccessful()) {
                     getView().updateResult(response.body());
@@ -65,11 +80,12 @@ public class TrainPresenter extends BaseLocationPresenter<TrainView> {
                 else {
                     showMessage(response.message());
                 }
+
             }
 
             @Override
             public void onFailure(Call<RouteResult> call, Throwable t) {
-
+                hideProgressDialog();
             }
         });
     }

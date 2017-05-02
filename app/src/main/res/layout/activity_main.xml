@@ -51,17 +51,6 @@
                 android:textSize="15dp" />
 
             <Button
-                android:id="@+id/button_train_map"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dip"
-                android:background="@color/bg_login"
-                android:text="@string/btn_train_map"
-                android:textAllCaps="false"
-                android:textColor="@color/white"
-                android:textSize="15dp" />
-
-            <Button
                 android:id="@+id/button_about"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"

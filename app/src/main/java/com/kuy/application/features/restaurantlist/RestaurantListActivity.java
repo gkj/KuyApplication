@@ -58,8 +58,8 @@ public class RestaurantListActivity extends BaseActivity<RestaurantListPresenter
 
         sortMode = getIntent().getIntExtra(Constant.RESTAURANT_MODE, Constant.RESTAURANT_MODE_DISTANCE);
         if (sortMode == Constant.RESTAURANT_MODE_DISTANCE) {
-            latitude = getIntent().getDoubleExtra(Constant.LATITUDE, 0.0);
-            longitude = getIntent().getDoubleExtra(Constant.LONGITUDE, 0.0);
+            latitude = getIntent().getDoubleExtra(Constant.LATITUDE, Constant.NO_COORDINATE);
+            longitude = getIntent().getDoubleExtra(Constant.LONGITUDE, Constant.NO_COORDINATE);
             setTitle("Nearby Restaurant");
         }
         else {

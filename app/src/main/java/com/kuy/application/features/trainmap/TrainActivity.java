@@ -77,8 +77,6 @@ public class TrainActivity extends BaseLocationActivity<TrainPresenter, TrainVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_train);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         // Create the adapter that will return a fragment for each of the three
         // primary sections of the activity.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -200,8 +198,8 @@ public class TrainActivity extends BaseLocationActivity<TrainPresenter, TrainVie
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_train, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-            textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
+            //TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+            //textView.setText(getString(R.string.section_format, getArguments().getInt(ARG_SECTION_NUMBER)));
             return rootView;
         }
     }
@@ -250,6 +248,7 @@ public class TrainActivity extends BaseLocationActivity<TrainPresenter, TrainVie
                     args.putString(TrainSummaryFragment.ARG_GOAL_STATION_NAME, goal != null ? goal.getName() : "-");
                     args.putString(TrainSummaryFragment.ARG_GOAL_STATION_ADDRESS, goal != null ? goal.getAddress() : "-");
                     args.putInt(TrainSummaryFragment.ARG_TOTAL_SCHEDULE, result != null ? result.getPlans().size() : 0);
+                    args.putParcelable(TrainSummaryFragment.ARG_ROUTE_RESULT, result);
 
                     tsf.setArguments(args);
 
@@ -260,7 +259,12 @@ public class TrainActivity extends BaseLocationActivity<TrainPresenter, TrainVie
 
             // getItem is called to instantiate the fragment for the given page.
             // Return a PlaceholderFragment (defined as a static inner class below).
-            return PlaceholderFragment.newInstance(position + 1);
+            TrainFragment tf = new TrainFragment();
+            Bundle args = new Bundle();
+            args.putParcelable(TrainFragment.ARG_PLAN, result.getPlans().get(position-1));
+            tf.setArguments(args);
+
+            return tf;
         }
 
         @Override

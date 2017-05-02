@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.jakewharton.rxbinding.view.RxView;
 import com.kuy.application.R;
 import com.kuy.application.features.BaseActivity;
+import com.kuy.application.models.Hotel;
 import com.kuy.application.models.Restaurant;
 import com.kuy.application.util.Constant;
 import com.squareup.picasso.Picasso;
@@ -26,8 +27,11 @@ public class RestaurantDetailActivity extends BaseActivity<RestaurantDetailPrese
     private TextView cityTextView;
     private TextView postalCodeTextView;
     private Button showMapButton;
+    private Button trainSuggestionButton;
 
     private Restaurant selectedRestaurant;
+    private double latitude;
+    private double longitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +48,11 @@ public class RestaurantDetailActivity extends BaseActivity<RestaurantDetailPrese
         cityTextView = (TextView) findViewById(R.id.textview_city);
         postalCodeTextView = (TextView) findViewById(R.id.textview_postal_code);
         showMapButton = (Button) findViewById(R.id.button_show_map);
+        trainSuggestionButton = (Button) findViewById(R.id.button_train_suggestion);
 
         Intent intent = getIntent();
+        latitude = intent.getDoubleExtra(Constant.LATITUDE, Constant.NO_COORDINATE);
+        longitude = intent.getDoubleExtra(Constant.LONGITUDE, Constant.NO_COORDINATE);
         selectedRestaurant = (Restaurant) intent.getParcelableExtra(Constant.SELECTED_RESTAURANT);
 
         if (selectedRestaurant != null) {
@@ -71,8 +78,23 @@ public class RestaurantDetailActivity extends BaseActivity<RestaurantDetailPrese
     }
 
     @Override
+    public Observable<Void> onTrainSuggestionButtonClicked() {
+        return RxView.clicks(trainSuggestionButton);
+    }
+
+    @Override
     public Restaurant getSelectedRestaurant() {
         return selectedRestaurant;
+    }
+
+    @Override
+    public double getLatitude() {
+        return latitude;
+    }
+
+    @Override
+    public double getLongitude() {
+        return longitude;
     }
 
 

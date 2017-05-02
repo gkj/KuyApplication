@@ -32,7 +32,7 @@ public class RestaurantListPresenter extends BasePresenter<RestaurantListView> {
 
     private void getRestaurantList() {
 
-        getView().showProgressDialog();
+        showProgressDialog("Getting restaurant list...");
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(KuyService.BASE_URL)
@@ -55,14 +55,14 @@ public class RestaurantListPresenter extends BasePresenter<RestaurantListView> {
                         Collections.sort(restaurants, new RestaurantDistanceComparator((float) getView().getLatitude(), (float) getView().getLongitude()));
 
                     getView().updateDataset(restaurants);
-                    getView().hideProgressDialog();
+                    hideProgressDialog();
                 }
             }
 
             @Override
             public void onFailure(Call<List<Restaurant>> call, Throwable t) {
                 t.printStackTrace();
-                getView().hideProgressDialog();
+                hideProgressDialog();
             }
         });
     }

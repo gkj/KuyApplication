@@ -32,7 +32,7 @@ public class HotelListPresenter extends BasePresenter<HotelListView> {
 
     private void getHotelList() {
 
-        getView().showProgressDialog();
+        showProgressDialog("Getting hotel list...");
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(KuyService.BASE_URL)
@@ -55,14 +55,14 @@ public class HotelListPresenter extends BasePresenter<HotelListView> {
                         Collections.sort(hotels, new HotelDistanceComparator((float) getView().getLatitude(), (float) getView().getLongitude()));
 
                     getView().updateDataset(hotels);
-                    getView().hideProgressDialog();
+                    hideProgressDialog();
                 }
             }
 
             @Override
             public void onFailure(Call<List<Hotel>> call, Throwable t) {
                 t.printStackTrace();
-                getView().hideProgressDialog();
+                hideProgressDialog();
             }
         });
     }

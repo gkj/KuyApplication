@@ -19,9 +19,6 @@ public interface MainView extends BaseView {
     Observable<Void> onRestaurantButtonClicked();
 
     @CallOnMainThread
-    Observable<Void> onTrainMapButtonClicked();
-
-    @CallOnMainThread
     Observable<Void> onAboutButtonClicked();
 
     @CallOnMainThread

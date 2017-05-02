@@ -25,7 +25,6 @@ public class MainActivity extends BaseActivity<MainPresenter, MainView>
 
     private Button hotelButton;
     private Button restaurantButton;
-    private Button trainMapButton;
     private Button aboutButton;
     private Button profileButton;
     private Button logoutButton;
@@ -43,7 +42,6 @@ public class MainActivity extends BaseActivity<MainPresenter, MainView>
     private void initUI() {
         hotelButton = (Button) findViewById(R.id.button_hotel);
         restaurantButton = (Button) findViewById(R.id.button_restaurant);
-        trainMapButton = (Button) findViewById(R.id.button_train_map);
         aboutButton = (Button) findViewById(R.id.button_about);
         profileButton = (Button) findViewById(R.id.button_profile);
         logoutButton = (Button) findViewById(R.id.button_logout);
@@ -63,11 +61,6 @@ public class MainActivity extends BaseActivity<MainPresenter, MainView>
     @Override
     public Observable<Void> onRestaurantButtonClicked() {
         return RxView.clicks(restaurantButton);
-    }
-
-    @Override
-    public Observable<Void> onTrainMapButtonClicked() {
-        return RxView.clicks(trainMapButton);
     }
 
     @Override

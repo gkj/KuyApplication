@@ -43,14 +43,6 @@ public class MainPresenter extends BasePresenter<MainView> {
             }
         }));
 
-        registerObservable(getView().onTrainMapButtonClicked().subscribe(new Action1<Void>() {
-            @Override
-            public void call(Void aVoid) {
-                //train map button clicked
-                //navigateTo(TrainMapActivity.class);
-            }
-        }));
-
         registerObservable(getView().onAboutButtonClicked().subscribe(new Action1<Void>() {
             @Override
             public void call(Void aVoid) {

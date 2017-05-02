@@ -1,12 +1,15 @@
 package com.kuy.application.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 /**
  * Created by gilang on 5/1/17.
  */
-public class Section {
+public class Section implements Parcelable {
 
     @SerializedName("type")
     @Expose
@@ -163,4 +166,55 @@ public class Section {
         this.destinationNodeName = destinationNodeName;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(type);
+        dest.writeString(nodeId);
+        dest.writeString(nodeName);
+        dest.writeString(move);
+        dest.writeInt(time);
+        dest.writeString(fromTime);
+        dest.writeString(toTime);
+        dest.writeString(operationId);
+        dest.writeString(operationName);
+        dest.writeString(linkId);
+        dest.writeString(linkName);
+        dest.writeString(companyId);
+        dest.writeString(destinationNodeId);
+        dest.writeString(destinationNodeName);
+    }
+
+    // this is used to regenerate your object. All Parcelables must have a CREATOR that implements these two methods
+    public static final Parcelable.Creator<Section> CREATOR = new Parcelable.Creator<Section>() {
+        public Section createFromParcel(Parcel in) {
+            return new Section(in);
+        }
+
+        public Section[] newArray(int size) {
+            return new Section[size];
+        }
+    };
+
+    // example constructor that takes a Parcel and gives you an object populated with it's values
+    private Section(Parcel in) {
+        type = in.readString();
+        nodeId = in.readString();
+        nodeName = in.readString();
+        move = in.readString();
+        time = in.readInt();
+        fromTime = in.readString();
+        toTime = in.readString();
+        operationId = in.readString();
+        operationName = in.readString();
+        linkId = in.readString();
+        linkName = in.readString();
+        companyId = in.readString();
+        destinationNodeId = in.readString();
+        destinationNodeName = in.readString();
+    }
 }

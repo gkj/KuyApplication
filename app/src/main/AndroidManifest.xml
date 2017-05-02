@@ -90,7 +90,6 @@
         <activity
             android:name=".features.trainmap.TrainActivity"
             android:label="@string/title_activity_train"
-            android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".features.hoteldetail.HotelDetailActivity"></activity>
     </application>
 

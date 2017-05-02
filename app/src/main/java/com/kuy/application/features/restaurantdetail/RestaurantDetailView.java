@@ -12,9 +12,19 @@ import rx.Observable;
  */
 
 public interface RestaurantDetailView extends BaseView {
+
     @CallOnMainThread
     Observable<Void> onShowMapButtonClicked();
 
     @CallOnMainThread
+    Observable<Void> onTrainSuggestionButtonClicked();
+
+    @CallOnMainThread
     Restaurant getSelectedRestaurant();
+
+    @CallOnMainThread
+    double getLatitude();
+
+    @CallOnMainThread
+    double getLongitude();
 }
