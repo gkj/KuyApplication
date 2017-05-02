@@ -21,22 +21,6 @@ public class HotelDistanceComparator implements Comparator<Hotel> {
         this.lng = lng;
     }
 
-    private float distance (float lat_a, float lng_a, float lat_b, float lng_b )
-    {
-        double earthRadius = 3958.75;
-        double latDiff = Math.toRadians(lat_b-lat_a);
-        double lngDiff = Math.toRadians(lng_b-lng_a);
-        double a = Math.sin(latDiff /2) * Math.sin(latDiff /2) +
-                Math.cos(Math.toRadians(lat_a)) * Math.cos(Math.toRadians(lat_b)) *
-                        Math.sin(lngDiff /2) * Math.sin(lngDiff /2);
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        double distance = earthRadius * c;
-
-        int meterConversion = 1609;
-
-        return new Float(distance * meterConversion).floatValue();
-    }
-
     @Override
     public int compare(Hotel o1, Hotel o2) {
 
@@ -46,11 +30,11 @@ public class HotelDistanceComparator implements Comparator<Hotel> {
         float hotel2Lat = Float.parseFloat(o2.getLatitude());
         float hotel2Long = Float.parseFloat(o2.getLongitude());
 
-        float result = distance(lat, lng, hotel1Lat, hotel1Long) - distance(lat, lng, hotel2Lat, hotel2Long);
+        double result = CoordinateUtil.distance(lat, lng, hotel1Lat, hotel1Long, 0.0, 0.0) - CoordinateUtil.distance(lat, lng, hotel2Lat, hotel2Long, 0.0, 0.0);
 
-        if (Float.compare(result, 0.0f) == 0)
+        if (Double.compare(result, 0.0) == 0)
             return 0;
         else
-            return result < 0.0f ? -1 : 1;
+            return result < 0.0 ? -1 : 1;
     }
 }

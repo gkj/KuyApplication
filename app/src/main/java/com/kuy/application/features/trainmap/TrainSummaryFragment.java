@@ -117,6 +117,7 @@ public class TrainSummaryFragment extends Fragment {
 
     private void showResult() {
         textview_total_schedule.setText(result.getPlans().size() + " schedules available");
+        textview_total_schedule.setVisibility(View.VISIBLE);
 
         scheduleLayout.removeAllViews();
 

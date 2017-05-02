@@ -9,6 +9,7 @@ import com.kuy.application.features.BaseLocationPresenter;
 import com.kuy.application.models.RouteResult;
 import com.kuy.application.models.Station;
 import com.kuy.application.util.Constant;
+import com.kuy.application.util.CoordinateUtil;
 import com.kuy.application.util.StationUtil;
 
 import java.text.SimpleDateFormat;
@@ -41,7 +42,7 @@ public class TrainPresenter extends BaseLocationPresenter<TrainView> {
         Station nearest = null;
         StationUtil.getInstance().loadStationsFromData(getActivity());
         for(Station s : StationUtil.getInstance().getStations()) {
-            double d = distance(lat, Double.parseDouble(s.getLatitude()), lng, Double.parseDouble(s.getLongitude()), 0.0, 0.0);
+            double d = CoordinateUtil.distance(lat, Double.parseDouble(s.getLatitude()), lng, Double.parseDouble(s.getLongitude()), 0.0, 0.0);
             if (d < smallest) {
                 smallest = d;
                 nearest = s;
@@ -88,26 +89,6 @@ public class TrainPresenter extends BaseLocationPresenter<TrainView> {
                 hideProgressDialog();
             }
         });
-    }
-
-    public double distance(double lat1, double lat2, double lon1,
-                           double lon2, double el1, double el2) {
-
-        final int R = 6371; // Radius of the earth
-
-        double latDistance = Math.toRadians(lat2 - lat1);
-        double lonDistance = Math.toRadians(lon2 - lon1);
-        double a = Math.sin(latDistance / 2) * Math.sin(latDistance / 2)
-                + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2))
-                * Math.sin(lonDistance / 2) * Math.sin(lonDistance / 2);
-        double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        double distance = R * c * 1000; // convert to meters
-
-        double height = el1 - el2;
-
-        distance = Math.pow(distance, 2) + Math.pow(height, 2);
-
-        return Math.sqrt(distance);
     }
 
     @Override
