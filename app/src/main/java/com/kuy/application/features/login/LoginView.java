@@ -18,6 +18,9 @@ public interface LoginView extends BaseView {
     Observable<Void> onLoginButtonClicked();
 
     @CallOnMainThread
+    Observable<Void> onRegisterButtonClicked();
+
+    @CallOnMainThread
     String getEmail();
 
     @CallOnMainThread

@@ -40,4 +40,13 @@ public interface BaseView extends TiView {
 
     @CallOnMainThread
     MaterialDialog getProgressDialog(String message);
+
+    @CallOnMainThread
+    void showToast(String message);
+
+    @CallOnMainThread
+    void showLongToast(String message);
+
+    @CallOnMainThread
+    void showShortToast(String message);
 }

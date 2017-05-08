@@ -27,6 +27,10 @@ public interface KuyService {
     @POST("login.php")
     Call<String> login(@Part("email") RequestBody email, @Part("password") RequestBody password);
 
+    @Multipart
+    @POST("register.php")
+    Call<String> register(@Part("name") RequestBody name, @Part("email") RequestBody email, @Part("password") RequestBody password);
+
     @GET("list_hotel.php")
     Call<List<Hotel>> getHotelList();
 

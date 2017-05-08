@@ -6,6 +6,7 @@ import com.google.gson.Gson;
 import com.kuy.application.api.KuyService;
 import com.kuy.application.features.BasePresenter;
 import com.kuy.application.features.main.MainActivity;
+import com.kuy.application.features.register.RegisterActivity;
 import com.kuy.application.models.LoginResponse;
 import com.kuy.application.util.Constant;
 import com.kuy.application.util.Preferences;
@@ -36,6 +37,14 @@ public class LoginPresenter extends BasePresenter<LoginView> {
                 login();
             }
         }));
+
+        registerObservable(getView().onRegisterButtonClicked().subscribe(new Action1<Void>() {
+            @Override
+            public void call(Void aVoid) {
+                navigateTo(RegisterActivity.class);
+                finishActivity();
+            }
+        }));
     }
 
     private RequestBody getRequestBody(String value) {
@@ -43,6 +52,9 @@ public class LoginPresenter extends BasePresenter<LoginView> {
     }
 
     private void login() {
+
+        showProgressDialog("Loging in...");
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(KuyService.BASE_URL)
                 .addConverterFactory(ScalarsConverterFactory.create())
@@ -57,6 +69,9 @@ public class LoginPresenter extends BasePresenter<LoginView> {
                 String result = response.body();
                 Gson gson = new Gson();
                 LoginResponse loginResponse = gson.fromJson(result, LoginResponse.class);
+
+                hideProgressDialog();
+
                 if (loginResponse.getError())
                 {
                     showMessage(loginResponse.getErrorMessage());

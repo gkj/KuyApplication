@@ -44,6 +44,12 @@ public class LoginActivity extends BaseActivity<LoginPresenter, LoginView>
     }
 
     @Override
+    public Observable<Void> onRegisterButtonClicked()
+    {
+        return RxView.clicks(registerButton);
+    }
+
+    @Override
     public String getEmail() {
         return emailEditText.getText().toString();
     }

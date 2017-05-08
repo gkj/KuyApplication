@@ -18,10 +18,10 @@
     <string name="btn_about">ABOUT</string>
     <string name="btn_profile">PROFILE</string>
     <string name="name">Fullname</string>
-    <string name="btnRestoDekat">NEARBY RESTAURANT</string>
+    <string name="btnRestoDekat">RESTAURANT IN KUALA LUMPUR</string>
     <string name="btnRestoMurah">CHEAPEST RESTAURANT</string>
     <string name="btnRestoRating">HIGHEST RATE RESTAURANT</string>
-    <string name="btnHotelDekat">NEARBY HOTEL</string>
+    <string name="btnHotelDekat">HOTEL IN KUALA LUMPUR</string>
     <string name="btnHotelMurah">CHEAPEST HOTEL</string>
     <string name="btnHotelRating">HIGHEST RATE HOTEL</string>
     <string name="logout">Logout</string>

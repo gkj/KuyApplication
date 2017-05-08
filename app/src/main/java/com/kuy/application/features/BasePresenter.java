@@ -73,4 +73,16 @@ public abstract class BasePresenter<V extends BaseView> extends TiPresenter<V>{
         if (progressDialog != null && !progressDialog.isCancelled())
             progressDialog.dismiss();
     }
+
+    protected void showToast(String message) {
+        getView().showToast(message);
+    }
+
+    protected void showLongToast(String message) {
+        getView().showLongToast(message);
+    }
+
+    protected void showShortToast(String message) {
+        getView().showShortToast(message);
+    }
 }

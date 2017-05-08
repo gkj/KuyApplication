@@ -42,7 +42,8 @@
         <activity
             android:name=".features.main.MainActivity"
             android:label="@string/title_activity_main" />
-        <activity android:name=".features.login.LoginActivity" />
+        <activity android:name=".features.login.LoginActivity"
+            android:label="Login"/>
         <activity
             android:name=".features.splashscreen.SplashscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -90,7 +91,9 @@
         <activity
             android:name=".features.trainmap.TrainActivity"
             android:label="@string/title_activity_train"
-            android:parentActivityName=".features.hoteldetail.HotelDetailActivity"></activity>
+            android:parentActivityName=".features.hoteldetail.HotelDetailActivity" />
+        <activity android:name=".features.register.RegisterActivity"
+            android:label="Register" />
     </application>
 
 </manifest>

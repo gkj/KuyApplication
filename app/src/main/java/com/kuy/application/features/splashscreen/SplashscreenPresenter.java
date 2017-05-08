@@ -36,7 +36,7 @@ public class SplashscreenPresenter extends BasePresenter<SplashscreenView> {
                 @Override
                 public void run() {
                     if (this != null && getBaseActivity() != null) {
-                        Preferences.getInstance().setContext(getBaseActivity());
+                        Preferences.getInstance().setContext(getActivity());
                         if (isViewAttached()) {
                             if (Preferences.getInstance().isUserLogin()) {
                                 navigateTo(MainActivity.class);

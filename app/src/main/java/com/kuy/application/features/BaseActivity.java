@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.kuy.application.R;
@@ -76,4 +77,18 @@ public abstract class BaseActivity<P extends BasePresenter<V>, V extends BaseVie
         return new Intent(getBaseActivity(), clazz);
     }
 
+    @Override
+    public void showToast(String message) {
+        showLongToast(message);
+    }
+
+    @Override
+    public void showLongToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showShortToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
 }
